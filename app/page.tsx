@@ -211,6 +211,7 @@ const serviceImages = [
   '/service-personnalise.png',
 ];
 const stepIcons = [MessageCircleMore, Users, BadgeCheck];
+const stepImages = ['/step-publier.png', '/step-choisir.png', '/step-suivre.png'];
 const valueIcons = [ShieldCheck, CircleDollarSign, MessageCircleMore, HeartHandshake];
 const zones = ['Delmas', 'Pétion-Ville', 'Port-au-Prince', 'Tabarre', 'Carrefour', 'Croix-des-Bouquets'];
 
@@ -310,7 +311,14 @@ export default function Home() {
         <div className="steps-grid">
           {t.steps.map(([title, description], index) => {
             const Icon = stepIcons[index];
-            return <article className="step-card" key={title}><div className="step-top"><span className="step-number">0{index + 1}</span><Icon size={28} /></div><h3>{title}</h3><p>{description}</p>{index < 2 && <span className="step-connector" aria-hidden="true"><ArrowRight size={21} /></span>}</article>;
+            return <article className="step-card" key={title}>
+              <div className="step-media">
+                <img src={stepImages[index]} alt={`${title} avec l’application Ti Sèvis`} loading="lazy" />
+                <div className="step-top"><span className="step-number">0{index + 1}</span><span className="step-icon"><Icon size={23} /></span></div>
+              </div>
+              <div className="step-content"><h3>{title}</h3><p>{description}</p></div>
+              {index < 2 && <span className="step-connector" aria-hidden="true"><ArrowRight size={21} /></span>}
+            </article>;
           })}
         </div>
       </section>

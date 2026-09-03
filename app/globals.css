@@ -169,12 +169,19 @@ button { font: inherit; }
 
 .how-section { border-top: 1px solid #e6ecf4; }
 .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.step-card { position: relative; min-height: 280px; border-radius: 26px; background: #f5f8fd; padding: 34px; }
-.step-top { display: flex; justify-content: space-between; align-items: center; color: #0f61ea; }
-.step-number { font-size: 13px; font-weight: 800; letter-spacing: .12em; color: #ff7b17; }
-.step-card h3 { margin: 65px 0 12px; font-size: 23px; letter-spacing: -.035em; }
+.step-card { position: relative; min-height: 620px; border: 1px solid #e2e9f2; border-radius: 26px; background: #fff; box-shadow: 0 16px 45px rgba(19,52,104,.07); transition: transform .25s ease, box-shadow .25s ease; }
+.step-card:hover { transform: translateY(-6px); box-shadow: 0 23px 55px rgba(19,52,104,.13); }
+.step-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 25px 25px 0 0; background: #f6f1e8; }
+.step-media > img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; transition: transform .45s ease; }
+.step-card:hover .step-media > img { transform: scale(1.025); }
+.step-top { position: absolute; inset: 18px 18px auto; display: flex; justify-content: space-between; align-items: center; }
+.step-number, .step-icon { min-width: 45px; height: 45px; padding: 0 13px; border-radius: 999px; display: grid; place-items: center; color: #fff; background: rgba(10,61,169,.94); box-shadow: 0 10px 28px rgba(11,47,119,.22); backdrop-filter: blur(10px); }
+.step-number { font-size: 12px; font-weight: 850; letter-spacing: .12em; }
+.step-icon { min-width: 45px; padding: 0; color: #0f61ea; background: rgba(255,255,255,.94); }
+.step-content { padding: 27px 30px 32px; }
+.step-card h3 { margin: 0 0 12px; font-size: 23px; letter-spacing: -.035em; }
 .step-card p { margin: 0; color: #65738a; line-height: 1.65; }
-.step-connector { position: absolute; right: -35px; top: 50%; z-index: 2; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: #0f61ea; box-shadow: 0 10px 28px rgba(26,69,135,.12); }
+.step-connector { position: absolute; right: -35px; top: 44%; z-index: 2; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: #0f61ea; box-shadow: 0 10px 28px rgba(26,69,135,.12); }
 
 .why-wrap { background: #081b49; color: #fff; }
 .why-section { width: min(1280px, calc(100% - 48px)); }
