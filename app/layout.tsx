@@ -12,8 +12,13 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const siteUrl = isGitHubPages
+  ? 'https://inova01.github.io/ti-sevis-website/'
+  : 'https://ti-sevis-haiti.innova10.chatgpt.site';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ti-sevis-haiti.innova10.chatgpt.site'),
+  metadataBase: new URL(siteUrl),
   title: 'Ti Sèvis — Le petit service qui simplifie votre quotidien',
   description:
     'Trouvez des prestataires de confiance en Haïti pour vos services du quotidien.',
@@ -21,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Ti Sèvis — Un petit service. Une grande différence.',
     description:
       'Les services du quotidien, à portée de main. Une plateforme pensée et construite pour Haïti.',
-    url: 'https://ti-sevis-haiti.innova10.chatgpt.site',
+    url: siteUrl,
     siteName: 'Ti Sèvis',
     locale: 'fr_HT',
     type: 'website',
