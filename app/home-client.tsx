@@ -281,9 +281,9 @@ export default function Home() {
         <h2>{t.introTitle}</h2>
         <p>{t.introText}</p>
         <div className="mini-stats">
-          <div><strong>8+</strong><span>{lang === 'fr' ? 'catégories de services' : 'kategori sèvis'}</span></div>
-          <div><strong>2</strong><span>{lang === 'fr' ? 'langues natives' : 'lang natif'}</span></div>
-          <div><strong>1</strong><span>{lang === 'fr' ? 'communauté locale' : 'kominote lokal'}</span></div>
+          <div><strong aria-label={lang === 'fr' ? 'Une infinité' : 'San limit'}>∞</strong><span>{lang === 'fr' ? 'Une infinité de catégories de services' : 'Kategori sèvis san limit'}</span></div>
+          <div className="language-stat"><strong>{lang === 'fr' ? 'Anglais, espagnol, créole, français' : 'Anglè, panyòl, kreyòl, franse'}</strong><span>{lang === 'fr' ? 'Quelle que soit votre langue, nos prestataires premium sont là pour vous servir.' : 'Kèlkeswa lang ou pale, prestataire premium nou yo la pou sèvi w.'}</span></div>
+          <div><strong>{lang === 'fr' ? '1 pays' : '1 peyi'}</strong><span>{lang === 'fr' ? '10 départements servis' : '10 depatman jwenn sèvis'}</span></div>
         </div>
       </section>
 
