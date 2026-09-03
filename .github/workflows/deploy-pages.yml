@@ -39,8 +39,8 @@ jobs:
           GITHUB_PAGES: 'true'
           NEXT_PUBLIC_BASE_PATH: /ti-sevis-website
 
-      - name: Disable Jekyll processing
-        run: touch dist/client/.nojekyll
+      - name: Prepare GitHub Pages assets
+        run: node scripts/prepare-github-pages.mjs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
