@@ -200,6 +200,16 @@ const content = {
 
 const navTargets = ['services', 'fonctionnement', 'zones', 'mission', 'faq'];
 const serviceIcons = [House, PackageCheck, Scissors, CookingPot, Paintbrush, HeartHandshake, BriefcaseBusiness, Sparkles];
+const serviceImages = [
+  '/service-menage.png',
+  '/service-livraison.png',
+  '/service-beaute.png',
+  '/service-cuisine.png',
+  '/service-reparations.png',
+  '/service-assistance.png',
+  '/service-professionnels.png',
+  '/service-personnalise.png',
+];
 const stepIcons = [MessageCircleMore, Users, BadgeCheck];
 const valueIcons = [ShieldCheck, CircleDollarSign, MessageCircleMore, HeartHandshake];
 const zones = ['Delmas', 'Pétion-Ville', 'Port-au-Prince', 'Tabarre', 'Carrefour', 'Croix-des-Bouquets'];
@@ -282,7 +292,14 @@ export default function Home() {
         <div className="service-grid">
           {t.services.map(([title, description], index) => {
             const Icon = serviceIcons[index];
-            return <article className={`service-card service-${index + 1}`} key={title}><div className="service-icon"><Icon size={25} /></div><h3>{title}</h3><p>{description}</p><span className="service-arrow"><ArrowRight size={18} /></span></article>;
+            return <article className={`service-card service-${index + 1}`} key={title}>
+              <div className="service-image-wrap">
+                <img className="service-image" src={serviceImages[index]} alt={`${title} avec Ti Sèvis`} loading="lazy" />
+                <div className="service-icon"><Icon size={22} /></div>
+              </div>
+              <div className="service-content"><h3>{title}</h3><p>{description}</p></div>
+              <span className="service-arrow"><ArrowRight size={18} /></span>
+            </article>;
           })}
         </div>
         <div className="app-only-note"><Smartphone size={18} /> {t.allInApp}</div>
