@@ -43,14 +43,13 @@ button { font: inherit; }
   z-index: 50;
 }
 
-.brand { display: flex; align-items: center; gap: 11px; font-size: 24px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; }
-.brand strong { color: #ff6a00; font-weight: 850; }
-.brand-mark { width: 45px; height: 45px; border-radius: 14px; overflow: hidden; border: 1px solid #dce5f2; background: white; box-shadow: 0 8px 25px rgba(19, 67, 150, .10); position: relative; }
-.brand-mark img { position: absolute; width: 134px; max-width: none; left: -44px; top: -29px; }
+.brand { display: inline-flex; align-items: center; width: 200px; max-width: 100%; min-width: 0; flex: 0 0 auto; }
+.brand-mark { display: block; width: 100%; padding: 4px; border-radius: 14px; overflow: hidden; background: #000; }
+.brand-mark img { display: block; width: 100%; height: auto; object-fit: contain; }
 .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 2.2vw, 36px); color: #46526a; font-size: 14px; font-weight: 600; }
 .desktop-nav a { transition: color .2s ease; white-space: nowrap; }
 .desktop-nav a:hover { color: #1155d9; }
-.header-actions { display: flex; align-items: center; gap: 10px; }
+.header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .language-pill, .menu-button { border: 1px solid #dce5f2; background: #fff; color: #17213a; height: 43px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; cursor: pointer; }
 .language-pill { padding: 0 14px; font-weight: 750; font-size: 13px; }
 .menu-button { width: 43px; display: none; }
@@ -107,9 +106,8 @@ button { font: inherit; }
 
 @media (max-width: 640px) {
   .site-header { height: 76px; padding: 0 18px; }
-  .brand { font-size: 20px; }
-  .brand-mark { width: 40px; height: 40px; }
-  .brand-mark img { width: 119px; left: -39px; top: -26px; }
+  .brand { width: clamp(140px, 45vw, 180px); }
+  .brand-mark { border-radius: 10px; }
   .language-pill, .header-cta { display: none; }
   .hero { min-height: auto; padding: 54px 20px 72px; gap: 30px; }
   .hero h1 { font-size: clamp(43px, 13vw, 62px); }
@@ -252,7 +250,7 @@ button { font: inherit; }
 
 footer { color: #dbe6fa; background: #06132f; }
 .footer-main { width: min(1280px, calc(100% - 48px)); margin: auto; padding: 75px 0 60px; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 70px; }
-.brand.inverse { color: #fff; width: fit-content; }
+.brand.inverse { width: 200px; }
 .footer-brand p { color: #91a4c7; margin: 20px 0; }
 .footer-brand > a:last-child { display: flex; align-items: center; gap: 8px; color: #a9bde0; font-size: 14px; }
 .footer-column { display: flex; flex-direction: column; gap: 14px; }

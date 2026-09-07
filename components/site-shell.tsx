@@ -50,7 +50,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     window.history.replaceState(null, '', url);
   }
 
-  const brand = <><span className="brand-mark" aria-hidden="true"><img src={assetPath('/ti-sevis-logo.jpeg')} alt="" /></span><span>TI <strong>SÈVIS</strong></span></>;
+  const brand = <span className="brand-mark"><img src={assetPath('/ti-sevis-logo-horizontal.jpeg')} alt="Ti Sèvis" width={1280} height={426} /></span>;
 
   return <SiteContext.Provider value={{ lang, href }}>
     <a className="skip-link" href="#page-content">{lang === 'fr' ? 'Aller au contenu' : 'Ale nan kontni an'}</a>
