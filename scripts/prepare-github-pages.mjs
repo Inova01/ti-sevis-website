@@ -1,4 +1,4 @@
-import { cp, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const outputDirectory = path.resolve('dist/client');
@@ -18,4 +18,25 @@ await rm(path.join(outputDirectory, 'ti-sevis-website'), {
   recursive: true,
   force: true,
 });
+
+// The export uses flat .html files so Vinext can prerender every route. Keep
+// those files for direct access and add the directory/index.html shape that
+// GitHub Pages resolves when a visitor follows our friendly /route/ links.
+async function addPrettyRouteCopies(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      await addPrettyRouteCopies(fullPath);
+      continue;
+    }
+    if (!entry.name.endsWith('.html') || entry.name === 'index.html' || entry.name === '404.html') continue;
+    const routeName = entry.name.slice(0, -'.html'.length);
+    const routeDirectory = path.join(directory, routeName);
+    await mkdir(routeDirectory, { recursive: true });
+    await cp(fullPath, path.join(routeDirectory, 'index.html'));
+  }
+}
+
+await addPrettyRouteCopies(outputDirectory);
 await writeFile(path.join(outputDirectory, '.nojekyll'), '');
