@@ -207,8 +207,45 @@ button { font: inherit; }
 .orbit-one { width: 420px; height: 420px; }
 .orbit-two { width: 540px; height: 540px; }
 
-.zones-section { display: grid; grid-template-columns: .82fr 1.18fr; gap: 80px; align-items: center; }
+.zones-section { display: grid; grid-template-columns: .75fr 1.25fr; gap: 50px; align-items: center; }
 .zone-copy p { max-width: 560px; margin-bottom: 30px; }
+.coverage-map { min-width: 0; padding: 28px; border: 1px solid #dce6f8; border-radius: 32px; background: radial-gradient(ellipse at 60% 35%, #fff 0, #edf4ff 65%); }
+.coverage-map-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; }
+.coverage-map-heading h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); margin: 7px 0; }
+.coverage-map-heading p { font-size: .875rem; margin: 0; color: #536582; }
+.map-pause { flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d3dff1; border-radius: 50%; color: #154aa5; background: white; cursor: pointer; }
+.haiti-map { display: block; width: 100%; height: auto; overflow: visible; margin: 5px 0 -10px; }
+.department-shape { fill: #c8dafa; stroke: #fff; stroke-width: 1.4; vector-effect: non-scaling-stroke; transition: fill .2s; cursor: pointer; }
+.haiti-map a:nth-of-type(2n) .department-shape { fill: #aec8f2; }
+.haiti-map a:hover .department-shape, .haiti-map a:focus .department-shape, .haiti-map .department-shape.is-active { fill: #1356d5; stroke: #ff9b35; stroke-width: 2; }
+.map-sea { fill: #647c9d; font-size: 11px; letter-spacing: 2px; }
+.map-journeys { pointer-events: none; }
+.journey-line { fill: none; stroke: #1d5bd0; stroke-width: 2; stroke-dasharray: 4 6; opacity: .5; }
+.journey-line.warm { stroke: #d56b11; }
+.map-traveller { offset-rotate: 0deg; animation: map-delivery 14s ease-in-out infinite alternate; color: #fff; }
+.map-traveller circle { fill: #1256d8; stroke: white; stroke-width: 3; }
+.traveller-car { offset-path: path('M 415 285 Q 410 215 347 157 Q 362 119 405 103'); offset-distance: 30%; }
+.traveller-moto { offset-path: path('M 170 328 Q 220 287 273 303 T 415 285'); offset-distance: 40%; animation-duration: 11s; animation-delay: -4s; }
+.traveller-moto circle { fill: #e67617; }
+.traveller-walk { offset-path: path('M 415 285 Q 427 289 438 280'); offset-distance: 70%; animation-duration: 6s; }
+.traveller-walk circle { fill: #19436d; }
+@keyframes map-delivery { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+.coverage-map.is-paused .map-traveller { animation-play-state: paused; }
+.map-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 22px; }
+.map-legend span { display: inline-flex; align-items: center; gap: 6px; font-size: .875rem; color: #28476e; }
+.map-legend span:nth-child(2) svg { color: #bb5909; }
+.map-departments { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.map-departments a { display: flex; align-items: center; gap: 7px; min-width: 0; min-height: 56px; padding: 9px 11px; border-radius: 14px; background: #fff; border: 1px solid #dce6f8; color: #28476e; font-size: .875rem; font-weight: 700; text-decoration: none; transition: background .2s, border-color .2s; }
+.map-departments a span { flex: 1; min-width: 0; }
+.map-departments svg { flex-shrink: 0; }
+.map-departments small { display: block; color: #61728a; font-size: .75rem; font-weight: 400; }
+.map-departments a:hover, .map-departments a.is-active { background: #e1ecff; border-color: #1356d5; }
+.map-departments a:focus-visible, .map-pause:focus-visible { outline: 3px solid #e67617; outline-offset: 3px; }
+.map-caption { font-size: .75rem; line-height: 1.5; color: #536582; margin: 16px 0 5px; }
+.map-credit { font-size: .75rem; color: #536582; margin: 0; }
+.map-credit a { text-decoration: underline; }
+@media (max-width: 640px) { .coverage-map { padding: 20px 14px; border-radius: 24px; } .map-departments a { padding: 8px; } }
+@media (prefers-reduced-motion: reduce) { .coverage-map .map-traveller { animation: none; } .coverage-map * { transition: none; } }
 .zone-map { min-height: 520px; position: relative; border-radius: 32px; overflow: hidden; background: #eff5ff; }
 .map-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(15,97,234,.18); inset: 0; margin: auto; }
 .ring-a { width: 310px; height: 310px; }

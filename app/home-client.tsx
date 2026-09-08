@@ -5,6 +5,7 @@ import { content } from '@/lib/home-content';
 import { serviceSlugs } from '@/lib/service-details';
 import { assetPath } from '@/lib/site-paths';
 import { useSite } from '@/components/site-shell';
+import CoverageMap from '@/components/coverage-map';
 import {
   ArrowDown,
   ArrowRight,
@@ -45,7 +46,6 @@ const serviceImages = [
 const stepIcons = [MessageCircleMore, Users, BadgeCheck];
 const stepImages = ['/step-publier.png', '/step-choisir.png', '/step-suivre.png'];
 const valueIcons = [ShieldCheck, CircleDollarSign, MessageCircleMore, HeartHandshake];
-const zones = ['Ouest', 'Sud-Est', 'Nord', 'Nord-Est', 'Artibonite', 'Centre'];
 export default function Home() {
   const { lang, href } = useSite();
   const [openFaq, setOpenFaq] = useState(0);
@@ -148,11 +148,7 @@ export default function Home() {
 
       <section className="section zones-section" id="zones">
         <div className="zone-copy"><span className="section-kicker">{t.zonesTag}</span><h2>{t.zonesTitle}</h2><p>{t.zonesText}</p><a className="button button-primary" href={href("/contact/")}><Mail size={18} /> {t.notify}</a></div>
-        <div className="zone-map" aria-label="Zones de lancement prévues">
-          <div className="map-ring ring-a" /><div className="map-ring ring-b" />
-          <div className="map-center"><MapPin size={30} /><strong>{lang === 'fr' ? <>10 départements<br />d’Haïti</> : <>10 depatman<br />Ayiti</>}</strong><span>{t.availableSoon}</span></div>
-          <div className="zone-chips">{zones.map((zone) => <span key={zone}><MapPin size={13} /> {zone}</span>)}</div>
-        </div>
+        <CoverageMap />
       </section>
 
       <section className="app-section" id="application">
